@@ -1,0 +1,12 @@
+What happens when you type google.com in your browser?[D and click enter[C[C[C?
+Upon typing in "google.com" and pressing Enter, the browser takes a number of steps which are,
+1. Resolve IP address of the URL via DNS
+2. Generate an HTTP request with headers (accept, user-agent, cookie, etc)
+3. Open an HTTP connection to the resolved IP address
+4. Send the request to the server and Receive the response from the server
+5. Parse response headers(Depending on the response headers, perform additional operations).
+6. Decompress the response body if it's compressed (e.g. gzipped)
+7. Parse the HTML code inside the response body.
+8. Resolve any additional resources (images, stylesheets, scripts, etc)[D[D[D[D[D colorc[C[C[C[C[C[C[D[D[D[D[D[,[B
+9. Start loading those resources via their URLs using the same steps.
+Render the HTML as soon as required resources are loaded, continue loading remaining resources in background([D d[C[C[C[C[C[C[C[C[d (When all the resources are loaded, close the HTTP connection).
